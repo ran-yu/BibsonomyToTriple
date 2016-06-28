@@ -1,0 +1,1120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+	xml:base="http://data.afel-project.eu/"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:dcterms="http://purl.org/dc/terms/"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/"
+	xmlns:void="http://rdfs.org/ns/void#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:xs="http://www.w3.org/TR/xmlschema11-2/#"
+	xmlns:cw="http://schema.org/CreativeWork"
+	xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:schema="http://schema.org/"
+	xmlns:sioc="http://rdfs.org/sioc/types#"
+	xmlns:bibo="http://purl.org/ontology/bibo/">
+
+	<rdf:Description rdf:about="http://data.duraark.eu/vocab/buildm/">
+		<dcterms:title xml:lang="en"></dcterms:title>
+		<rdfs:comment xml:lang="en">The 'buildm' schema has been developed in context of the DURAARK project.</rdfs:comment>
+		<owl:versionInfo>3.1, June 24, 2015</owl:versionInfo>
+		<dcterms:creator>
+			<rdf:Description>
+				<foaf:name>Besnik Fetahu</foaf:name>
+				<foaf:organization>L3S Research Center</foaf:organization>
+				<foaf:mbox>fetahu@l3s.de</foaf:mbox>
+			</rdf:Description>
+		</dcterms:creator>
+	</rdf:Description>
+
+	<!-- Classes -->
+
+	<rdfs:Class rdf:about="Artifact">
+		<rdfs:label>Artifact</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:CreativeWork"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="WikiPage">
+		<rdfs:label>Wiki Page</rdfs:label>
+		<rdfs:subClassOf rdf:resource="sioc:WikiArticle"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="NewsArticle">
+		<rdfs:label>News Article</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:Article"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="MailingList">
+		<rdfs:label>Mailing List</rdfs:label>
+		<rdfs:subClassOf rdf:resource="sioc:MailingList"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="SocialNetworkPost">
+		<rdfs:label>Social Media Post</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:SocialMediaPosting"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="FacebookPost">
+		<rdfs:label>Facebook Post</rdfs:label>
+		<rdfs:subClassOf rdf:resource="SocialNetworkPost"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="TwitterPost">
+		<rdfs:label>Twitter Post</rdfs:label>
+		<rdfs:subClassOf rdf:resource="SocialNetworkPost"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="StackOverflowPost">
+		<rdfs:label>StackOverflow Post</rdfs:label>
+		<rdfs:subClassOf rdf:resource="SocialNetworkPost"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="RedditPost">
+		<rdfs:label>Reddit Post</rdfs:label>
+		<rdfs:subClassOf rdf:resource="SocialNetworkPost"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="LinkedInPost">
+		<rdfs:label>LinkedIn Post</rdfs:label>
+		<rdfs:subClassOf rdf:resource="SocialNetworkPost"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="BlogPost">
+		<rdfs:label>Blog Posting</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:BlogPosting"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="Video">
+		<rdfs:label>Video Resource</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:VideoObject"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+
+	<rdfs:Class rdf:about="Image">
+		<rdfs:label>Image Resource</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:ImageObject"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="SlidePresentation">
+		<rdfs:label>Slide Presentation</rdfs:label>
+		<rdfs:subClassOf rdf:resource="bibo:SlideShow"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="WebResource">
+		<rdfs:label>Web Page</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:WebPage"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="Book">
+		<rdfs:label>Book</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:Book"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+	
+	<rdfs:Class rdf:about="Journal">
+		<rdfs:label>Journal</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:ScholaryArticle"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="Thesis">
+		<rdfs:label>Thesis</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:Thesis"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="SoftwareApplication">
+		<rdfs:label>Software Application</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:SoftwareApplication"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="Dataset">
+		<rdfs:label>Dataset</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:Dataset"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="Forum">
+		<rdfs:label>Forum</rdfs:label>
+		<rdfs:subClassOf rdf:resource="sioc:Forum"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+
+	<rdfs:Class rdf:about="Poll">
+		<rdfs:label>Image Resource</rdfs:label>
+		<rdfs:subClassOf rdf:resource="sioc:Poll"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+
+	<rdfs:Class rdf:about="Comment">
+		<rdfs:label>Comment</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:Comment"/>
+		<rdfs:subClassOf rdf:resource="Artifact"/>
+	</rdfs:Class>
+
+
+	<rdfs:class rdf:about="Organization">
+		<rdfs:label>Organization</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:Organization"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="EducationalOrganization">
+		<rdfs:label>Comment</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:EducationalOrganization"/>
+		<rdfs:subClassOf rdf:resource="Organization"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="Corporation">
+		<rdfs:label>Corporation</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:Corporation"/>
+		<rdfs:subClassOf rdf:resource="Organization"/>
+	</rdfs:Class>
+
+	<rdfs:class rdf:about="Person">
+		<rdfs:label>Person</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:Person"/>
+	</rdfs:Class>
+
+	<rdfs:class rdf:about="Learner">
+		<rdfs:label>Person</rdfs:label>
+		<rdfs:subClassOf rdf:resource="Person"/>
+	</rdfs:Class>
+
+	<rdfs:class rdf:about="Tutor">
+		<rdfs:label>Person</rdfs:label>
+		<rdfs:subClassOf rdf:resource="Person"/>
+	</rdfs:Class>
+
+	<rdfs:class rdf:about="User">
+		<rdfs:label>Person</rdfs:label>
+		<rdfs:subClassOf rdf:resource="Person"/>
+	</rdfs:Class>
+
+	<rdfs:class rdf:about="Event">
+		<rdfs:label>Event</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:Event"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="UserActivity">
+		<rdfs:label>User Activity</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:Action"/>
+		<rdfs:subClassOf rdf:resource="Event"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="UserLike">
+		<rdfs:label>User Like</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:LikeAction"/>
+		<rdfs:subClassOf rdf:resource="UserActivity"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="ArtifactVisit">
+		<rdfs:label>Artifact Visit</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:ConsumeAction"/>
+		<rdfs:subClassOf rdf:resource="UserActivity"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="ArtifactView">
+		<rdfs:label>Artifact View</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:ViewAction"/>
+		<rdfs:subClassOf rdf:resource="ArtifactVisit"/>
+	</rdfs:Class>
+
+
+	<rdfs:Class rdf:about="ArtifactPlay">
+		<rdfs:label>Artifact Play</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:WatchAction"/>
+		<rdfs:subClassOf rdf:resource="ArtifactVisit"/>
+	</rdfs:Class>
+
+
+	<rdfs:Class rdf:about="UserReply">
+		<rdfs:label>User Reply</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:ReplyAction"/>
+		<rdfs:subClassOf rdf:resource="Event"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="MouseEvent">
+		<rdfs:label>Mouse Event</rdfs:label>
+		<rdfs:subClassOf rdf:resource="Event"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="MouseClick">
+		<rdfs:label>Mouse Click</rdfs:label>
+		<rdfs:subClassOf rdf:resource="MouseEvent"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="MouseScroll">
+		<rdfs:label>Mouse Scroll</rdfs:label>
+		<rdfs:subClassOf rdf:resource="MouseEvent"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="MouseTransition">
+		<rdfs:label>Mouse Transition</rdfs:label>
+		<rdfs:subClassOf rdf:resource="MouseEvent"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="KeyboardEvent">
+		<rdfs:label>Keyboard Event</rdfs:label>
+		<rdfs:subClassOf rdf:resource="Event"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="KeyPress">
+		<rdfs:label>Key Press</rdfs:label>
+		<rdfs:subClassOf rdf:resource="KeyboardEvent"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="LearningActivity">
+		<rdfs:label>Learning Activity</rdfs:label>
+		<rdfs:subClassOf rdf:resource="Event"/>
+		<rdfs:subClassOf rdf:resource="schema:EducationalEvent"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="Course">
+		<rdfs:label>Course</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:CourseInstance"/>
+		<rdfs:subClassOf rdf:resource="Event"/>
+	</rdfs:Class>
+
+	<rdfs:Class rdf:about="Conference">
+		<rdfs:label>Conference</rdfs:label>
+		<rdfs:subClassOf rdf:resource="schema:BusinessEvent"/>
+		<rdfs:subClassOf rdf:resource="Event"/>
+	</rdfs:Class>
+
+
+	<!-- Define the properties for the different classes -->
+
+	<!-- Define the properties for the Artifact class -->
+	<rdf:Property rdf:about="resourceID">
+		<rdfs:label>Resource Identifier</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:integer">
+	</rdf:Property>
+
+	<rdf:Property rdf:about="URL">
+		<rdfs:label>URL</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<owl:equivalentProperty rdf:resource="schema:url" />
+	</rdf:Property>
+
+	<rdf:Property rdf:about="content">
+		<rdfs:label>Content</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<owl:equivalentProperty rdf:resource="schema:text" />
+	</rdf:Property>
+
+	<rdf:Property rdf:about="date">
+		<rdfs:label>Date Created</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:date"/>
+		<owl:equivalentProperty rdf:resource="schema:dateCreated" />
+	</rdf:Property>
+
+	<rdf:Property rdf:about="creator">
+		<rdfs:label>Creator</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range>
+			<owl:Class>
+					<owl:unionOf rdf:parseType="Collection">
+						<owl:Class rdf:about="Person"/>
+						<owl:Class rdf:about="Organization"/>
+					</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+		<owl:equivalentProperty rdf:resource="schema:creator" />
+	</rdf:Property>
+
+	<rdf:Property rdf:about="contributor">
+		<rdfs:label>Contributor</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range>
+			<owl:Class>
+					<owl:unionOf rdf:parseType="Collection">
+						<owl:Class rdf:about="Person"/>
+						<owl:Class rdf:about="Organization"/>
+					</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+		<owl:equivalentProperty rdf:resource="schema:contributor" />
+	</rdf:Property>
+
+	<rdf:Property rdf:about="revisionNumber">
+		<rdfs:label>Revision Number</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:long"/>
+		<owl:equivalentProperty rdf:resource="schema:version" />
+	</rdf:Property>
+
+	<rdf:Property rdf:about="language">
+		<rdfs:label>Language</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<owl:equivalentProperty rdf:resource="schema:inLanguage" />
+	</rdf:Property>
+
+	<rdf:Property rdf:about="format">
+		<rdfs:label>Content Format</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<owl:equivalentProperty rdf:resource="schema:fileFormat" />
+	</rdf:Property>
+
+	<rdf:Property rdf:about="topic">
+		<rdfs:label>Content Topic</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+
+
+	<rdf:Property rdf:about="tag">
+		<rdfs:label>Tag</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<owl:equivalentProperty rdf:resource="schema:keywords" />
+	</rdf:Property>
+
+
+	<rdf:Property rdf:about="license">
+		<rdfs:label>Content</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<owl:equivalentProperty rdf:resource="schema:license" />
+	</rdf:Property>
+
+
+	<rdf:Property rdf:about="hostingPlatform">
+		<rdfs:label>Hosting Platform</rdfs:label>
+		<rdfs:comment>A hosting platform can be for example SlideShare for a slideset, Facebook for a Facebook post etc.</rdfs:comment>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+
+		<rdf:Property rdf:about="publisher">
+		<rdfs:label>Publisher</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<owl:equivalentProperty rdf:resource="schema:text" />
+	</rdf:Property>
+
+
+	<rdf:Property rdf:about="relatedArtifacts">
+		<rdfs:label>Related Artifacts</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="Artifact"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="allowedActions">
+		<rdfs:label>Allowed Actions</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="Event"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="qualityScore">
+		<rdfs:label>Quality Score</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="bias">
+		<rdfs:label>Artifact Bias</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+
+
+	<rdf:Property rdf:about="complexityLevel">
+		<rdfs:label>Allowed Actions</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+
+
+	<rdf:Property rdf:about="prerequisite">
+		<rdfs:label>Artifact Prerequisites</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="Artifact"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="targetAudience">
+		<rdfs:label>Target Audience</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="previousRevision">
+		<rdfs:label>Previous Revision</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="Artifact"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="outLinks">
+		<rdfs:label>Outgoing Links</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="size">
+		<rdfs:label>Artifact Size</rdfs:label>
+		<rdfs:domain rdf:resource="Artifact"/>
+		<rdfs:range rdf:resource="xsd:integer"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for Artifact class -->
+
+
+	<!-- definition of properties for class WikiPage -->
+	<rdf:Property rdf:about="comment">
+		<rdfs:label>Wiki Page Comment</rdfs:label>
+		<rdfs:domain rdf:resource="WikiPage"/>
+		<rdfs:range rdf:resource="Comment"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="section">
+		<rdfs:label>Wiki Page Section</rdfs:label>
+		<rdfs:domain rdf:resource="WikiPage"/>
+		<rdfs:range rdf:resource="WikiPage"/>
+		<owl:equivalentProperty rdf:resource="schema:hasPart"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="isProtected">
+		<rdfs:label>Is Wiki Page Protected</rdfs:label>
+		<rdfs:domain rdf:resource="WikiPage"/>
+		<rdfs:range rdf:resource="xsd:boolean"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="isMinor">
+		<rdfs:label>Is Wiki Page Minor Revision</rdfs:label>
+		<rdfs:domain rdf:resource="WikiPage"/>
+		<rdfs:range rdf:resource="xsd:boolean"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="isDeletion">
+		<rdfs:label>Is Wiki Page Deletion</rdfs:label>
+		<rdfs:domain rdf:resource="WikiPage"/>
+		<rdfs:range rdf:resource="xsd:boolean"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for WikiPage class -->	
+
+
+	<!-- definition of properties for class Mailing List -->
+	<rdf:Property rdf:about="email">
+		<rdfs:label>Mailing List</rdfs:label>
+		<rdfs:domain rdf:resource="MailingList"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="isReply">
+		<rdfs:label>Is Reply to MailingList</rdfs:label>
+		<rdfs:domain rdf:resource="MailingList"/>
+		<rdfs:range rdf:resource="xsd:boolean"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="replyToEmail">
+		<rdfs:label>Reply Email</rdfs:label>
+		<rdfs:domain rdf:resource="MailingList"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	</rdf:Property>
+	<!--- end of the definition of properties for Mailing List class -->	
+
+
+	<!-- definition of properties for class SocialNetworkPost class -->
+	<rdf:Property rdf:about="hasArtifact">
+		<rdfs:label>Has Artifact</rdfs:label>
+		<rdfs:domain rdf:resource="SocialNetworkPost"/>
+		<rdfs:range rdf:resource="Artifact"/>
+		<owl:equivalentProperty rdf:resource="schema:hasPart"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="isReply">
+		<rdfs:label>Is Reply</rdfs:label>
+		<rdfs:domain rdf:resource="SocialNetworkPost"/>
+		<rdfs:range rdf:resource="xsd:boolean"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="hasReply">
+		<rdfs:label>Has Reply</rdfs:label>
+		<rdfs:domain rdf:resource="SocialNetworkPost"/>
+		<rdfs:range rdf:resource="xsd:boolean"/>
+	</rdf:Property>
+
+	<rdf:Property rdf:about="mentions">
+		<rdfs:label>Mentions</rdfs:label>
+		<rdfs:domain rdf:resource="SocialNetworkPost"/>
+		<rdfs:comment>Mentions like in Twitter or Facebook tagging.</rdfs:comment>
+		<rdfs:range rdf:resource="Person"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for SocialNetworkPost class -->	
+
+
+	<!-- definition of properties for class FacebookPost class -->
+	<rdf:Property rdf:about="hasReaction">
+		<rdfs:label>Has Reaction</rdfs:label>
+		<rdfs:domain rdf:resource="FacebookPost"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<rdfs:comment>Valid reactions include {love, sad, wow, haha, angry, like}.</rdfs:comment>
+	</rdf:Property>
+	<!--- end of the definition of properties for FacebookPost class -->	
+
+	<!-- definition of properties for class TwitterPost class -->
+	<rdf:Property rdf:about="favorites">
+		<rdfs:label>Favorites</rdfs:label>
+		<rdfs:domain rdf:resource="TwitterPost"/>
+		<rdfs:range rdf:resource="xsd:int"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="retweets">
+		<rdfs:label>Retweets</rdfs:label>
+		<rdfs:domain rdf:resource="TwitterPost"/>
+		<rdfs:range rdf:resource="xsd:int"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for TwitterPost class -->	
+
+	<!-- definition of properties for class StackOverflowPost class -->
+	<rdf:Property rdf:about="answer">
+		<rdfs:label>Answer</rdfs:label>
+		<rdfs:domain rdf:resource="StackOverflowPost"/>
+		<rdfs:range rdf:resource="Comment"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="votes">
+		<rdfs:label>Votes</rdfs:label>
+		<rdfs:domain rdf:resource="StackOverflowPost"/>
+		<rdfs:range rdf:resource="xsd:int"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for StackOverflowPost class -->	
+
+	<!-- definition of properties for class RedditPost class -->
+	<rdf:Property rdf:about="upVotes">
+		<rdfs:label>Up Votes</rdfs:label>
+		<rdfs:domain rdf:resource="RedditPost"/>
+		<rdfs:range rdf:resource="xsd:int"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="downVotes">
+		<rdfs:label>Down Votes</rdfs:label>
+		<rdfs:domain rdf:resource="RedditPost"/>
+		<rdfs:range rdf:resource="xsd:int"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="reply">
+		<rdfs:label>Reply</rdfs:label>
+		<rdfs:domain rdf:resource="RedditPost"/>
+		<rdfs:range rdf:resource="Comment"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for RedditPost class -->	
+
+
+	<!-- definition of properties for class BlogPost class -->
+	<rdf:Property rdf:about="comment">
+		<rdfs:label>Comment</rdfs:label>
+		<rdfs:domain rdf:resource="BlogPost"/>
+		<rdfs:range rdf:resource="Comment"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for BlogPost class -->	
+
+	<!-- definition of properties for class Video class -->
+	<rdf:Property rdf:about="length">
+		<rdfs:label>Length</rdfs:label>
+		<rdfs:domain rdf:resource="Video"/>
+		<rdfs:range rdf:resource="xsd:int"/>
+		<rdfs:comment>The length in seconds</rdfs:comment>
+	</rdf:Property>
+	<rdf:Property rdf:about="comment">
+		<rdfs:label>Comment</rdfs:label>
+		<rdfs:domain rdf:resource="Video"/>
+		<rdfs:range rdf:resource="Comment"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for Video class -->	
+
+	<!-- definition of properties for class Image class -->
+	<rdf:Property rdf:about="comment">
+		<rdfs:label>Comment</rdfs:label>
+		<rdfs:domain rdf:resource="Image"/>
+		<rdfs:range rdf:resource="Comment"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for Image class -->	
+
+
+	<!-- definition of properties for class SlidePresentation class -->
+	<rdf:Property rdf:about="comment">
+		<rdfs:label>Comment</rdfs:label>
+		<rdfs:domain rdf:resource="SlidePresentation"/>
+		<rdfs:range rdf:resource="Comment"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="numSlides">
+		<rdfs:label>Number of Slides</rdfs:label>
+		<rdfs:domain rdf:resource="SlidePresentation"/>
+		<rdfs:range rdf:resource="xsd:int"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for SlidePresentation class -->
+
+
+	<!-- definition of properties for class Book class -->
+	<rdf:Property rdf:about="genre">
+		<rdfs:label>Genre</rdfs:label>
+		<rdfs:domain rdf:resource="Book"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="ISBN">
+		<rdfs:label>ISBN</rdfs:label>
+		<rdfs:domain rdf:resource="Book"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="recommendedForCourse">
+		<rdfs:label>Recommended for Course</rdfs:label>
+		<rdfs:domain rdf:resource="Book"/>
+		<rdfs:range rdf:resource="Course"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="recommendedForTopic">
+		<rdfs:label>Recommended for Course</rdfs:label>
+		<rdfs:domain rdf:resource="Book"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="numPages">
+		<rdfs:label>Number of Pages</rdfs:label>
+		<rdfs:domain rdf:resource="Book"/>
+		<rdfs:range rdf:resource="xsd:int"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for Book class -->
+
+	<!-- definition of properties for class Journal class -->
+	<rdf:Property rdf:about="DOI">
+		<rdfs:label>DOI</rdfs:label>
+		<rdfs:domain rdf:resource="Journal"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="numPages">
+		<rdfs:label>Number of Pages</rdfs:label>
+		<rdfs:domain rdf:resource="Journal"/>
+		<rdfs:range rdf:resource="xsd:int"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="abstract">
+		<rdfs:label>Abstract</rdfs:label>
+		<rdfs:domain rdf:resource="Journal"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for Journal class -->
+
+
+	<!-- definition of properties for class Thesis class -->
+	<rdf:Property rdf:about="DOI">
+		<rdfs:label>DOI</rdfs:label>
+		<rdfs:domain rdf:resource="Thesis"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="numPages">
+		<rdfs:label>Number of Pages</rdfs:label>
+		<rdfs:domain rdf:resource="Thesis"/>
+		<rdfs:range rdf:resource="xsd:int"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="abstract">
+		<rdfs:label>Abstract</rdfs:label>
+		<rdfs:domain rdf:resource="Thesis"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="scientificDegree">
+		<rdfs:label>Scientific Degree</rdfs:label>
+		<rdfs:domain rdf:resource="Thesis"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for Thesis class -->
+
+
+
+	<!-- definition of properties for class Organization class -->
+	<rdf:Property rdf:about="URL">
+		<rdfs:label>URL</rdfs:label>
+		<rdfs:domain rdf:resource="Organziation"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="foundedBy">
+		<rdfs:label>Founded By</rdfs:label>
+		<rdfs:domain rdf:resource="Organziation"/>
+		<rdfs:range rdf:resource="Person"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="foundedOn">
+		<rdfs:label>Founded On</rdfs:label>
+		<rdfs:domain rdf:resource="Organziation"/>
+		<rdfs:range rdf:resource="xsd:date"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="foundedIn">
+		<rdfs:label>Founded In</rdfs:label>
+		<rdfs:domain rdf:resource="Organziation"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="locatedIn">
+		<rdfs:label>Located In</rdfs:label>
+		<rdfs:domain rdf:resource="Organziation"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="operatingLocations">
+		<rdfs:label>Operating Locations</rdfs:label>
+		<rdfs:domain rdf:resource="Organziation"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="fieldsOfExpertise">
+		<rdfs:label>Field Of Expertise</rdfs:label>
+		<rdfs:domain rdf:resource="Organziation"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="members">
+		<rdfs:label>Members</rdfs:label>
+		<rdfs:domain rdf:resource="Organziation"/>
+		<rdfs:range rdf:resource="Person"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="executiveMembers">
+		<rdfs:label>Executive Members</rdfs:label>
+		<rdfs:domain rdf:resource="Organziation"/>
+		<rdfs:range rdf:resource="Person"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for Organization class -->
+
+	<!-- definition of properties for class Corporation class -->
+	<rdf:Property rdf:about="revenue">
+		<rdfs:label>Revenue</rdfs:label>
+		<rdfs:domain rdf:resource="Corporation"/>
+		<rdfs:range rdf:resource="xsd:double"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="profit">
+		<rdfs:label>Profit</rdfs:label>
+		<rdfs:domain rdf:resource="Corporation"/>
+		<rdfs:range rdf:resource="xsd:double"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="products">
+		<rdfs:label>Products</rdfs:label>
+		<rdfs:domain rdf:resource="Corporation"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for Corporation class -->
+
+	<!-- definition of properties for class EducationalOrganization class -->
+	<rdf:Property rdf:about="alumno">
+		<rdfs:label>Revenue</rdfs:label>
+		<rdfs:domain rdf:resource="EducationalOrganization"/>
+		<rdfs:range rdf:resource="Person"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for EducationalOrganization class -->
+
+
+	<!-- definition of properties for class Person class -->
+	<rdf:Property rdf:about="id">
+		<rdfs:label>ID</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:integer"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="firstName">
+		<rdfs:label>First Name</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<owl:equivalentProperty rdf:resource="schema:givenName"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="middleName">
+		<rdfs:label>Middle Name</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<owl:equivalentProperty rdf:resource="schema:additionalName"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="lastName">
+		<rdfs:label>Last Name</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<owl:equivalentProperty rdf:resource="schema:lastName"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="dateOfBirth">
+		<rdfs:label>Date of Birth</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:date"/>
+		<owl:equivalentProperty rdf:resource="schema:birthDate"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="locatedIn">
+		<rdfs:label>ID</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="nationality">
+		<rdfs:label>ID</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<owl:equivalentProperty rdf:resource="schema:nationality"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="motherTongue">
+		<rdfs:label>Mother Tongue</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="spokenLanguages">
+		<rdfs:label>Spoken Languages</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="email">
+		<rdfs:label>E-mail</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<owl:equivalentProperty rdf:resource="schema:email"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="gender">
+		<rdfs:label>Gender</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<owl:equivalentProperty rdf:resource="schema:gender"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="maritalStatus">
+		<rdfs:label>Marital Status</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="socialStatus">
+		<rdfs:label>Social Status</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="occupation">
+		<rdfs:label>Occupation</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="religion">
+		<rdfs:label>Religion</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="sexualOrientation">
+		<rdfs:label>Sexual Orientation</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="interests">
+		<rdfs:label>Interests</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="role">
+		<rdfs:label>Role</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+		<rdfs:comment>These are the possible roles, like tutor, learner etc.</rdfs:comment>
+	</rdf:Property>
+	<rdf:Property rdf:about="politicalOrientation">
+		<rdfs:label>Political Orientation</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="education">
+		<rdfs:label>Education</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="ethnicity">
+		<rdfs:label>Ethnicity</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="professionalExperience">
+		<rdfs:label>Professional Experience</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="skills">
+		<rdfs:label>Skills</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="hobbies">
+		<rdfs:label>Hobbies</rdfs:label>
+		<rdfs:domain rdf:resource="Person"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for Person class -->
+
+	<!-- definition of properties for class User class -->
+	<rdf:Property rdf:about="person">
+		<rdfs:label>Person</rdfs:label>
+		<rdfs:domain rdf:resource="User"/>
+		<rdfs:range rdf:resource="Person"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="userID">
+		<rdfs:label>User ID</rdfs:label>
+		<rdfs:domain rdf:resource="User"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="userName">
+		<rdfs:label>User Name</rdfs:label>
+		<rdfs:domain rdf:resource="User"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="userActivity">
+		<rdfs:label>User Activity</rdfs:label>
+		<rdfs:domain rdf:resource="User"/>
+		<rdfs:range rdf:resource="UserActivity"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="avatar">
+		<rdfs:label>User Avatar</rdfs:label>
+		<rdfs:domain rdf:resource="User"/>
+		<rdfs:range rdf:resource="Image"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="userNetwork">
+		<rdfs:label>User Network</rdfs:label>
+		<rdfs:domain rdf:resource="User"/>
+		<rdfs:range rdf:resource="User"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="platform">
+		<rdfs:label>Registration Platform</rdfs:label>
+		<rdfs:domain rdf:resource="User"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for User class -->
+
+
+	<!-- definition of properties for class Event class -->
+	<rdf:Property rdf:about="eventID">
+		<rdfs:label>Event ID</rdfs:label>
+		<rdfs:domain rdf:resource="Event"/>
+		<rdfs:range rdf:resource="xsd:int"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="eventStartDate">
+		<rdfs:label>Event Start Date</rdfs:label>
+		<rdfs:domain rdf:resource="Event"/>
+		<rdfs:range rdf:resource="xsd:date"/>
+		<owl:equivalentProperty rdf:resource="schema:startDate" />
+	</rdf:Property>
+	<rdf:Property rdf:about="eventEndDate">
+		<rdfs:label>Event End Date</rdfs:label>
+		<rdfs:domain rdf:resource="Event"/>
+		<rdfs:range rdf:resource="xsd:date"/>
+		<owl:equivalentProperty rdf:resource="schema:endDate" />
+	</rdf:Property>
+	<rdf:Property rdf:about="eventAgent">
+		<rdfs:label>Event Agent</rdfs:label>
+		<rdfs:domain rdf:resource="Event"/>
+		<rdfs:range>
+			<owl:Class>
+					<owl:unionOf rdf:parseType="Collection">
+						<owl:Class rdf:about="Person"/>
+						<owl:Class rdf:about="Organization"/>
+					</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+	</rdf:Property>
+	<rdf:Property rdf:about="eventParticipants">
+		<rdfs:label>Event Participants</rdfs:label>
+		<rdfs:domain rdf:resource="Event"/>
+		<rdfs:range>
+			<owl:Class>
+					<owl:unionOf rdf:parseType="Collection">
+						<owl:Class rdf:about="Person"/>
+						<owl:Class rdf:about="Organization"/>
+					</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+	</rdf:Property>
+	<!--- end of the definition of properties for Event class -->
+
+
+	<!-- definition of properties for class UserActivity class -->
+	<rdf:Property rdf:about="user">
+		<rdfs:label>Activity User</rdfs:label>
+		<rdfs:domain rdf:resource="UserActivity"/>
+		<rdfs:range rdf:resource="User"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for UserActivity class -->
+
+	<!-- definition of properties for class UserReply class -->
+	<rdf:Property rdf:about="socialNetworkPost">
+		<rdfs:label>Activity User</rdfs:label>
+		<rdfs:domain rdf:resource="UserReply"/>
+		<rdfs:range rdf:resource="SocialNetworkPost"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for UserReply class -->
+
+	<!-- definition of properties for class ArtifactVisit class -->
+	<rdf:Property rdf:about="artifact">
+		<rdfs:label>Artifact</rdfs:label>
+		<rdfs:domain rdf:resource="ArtifactVisit"/>
+		<rdfs:range rdf:resource="Artifact"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="artifactReferer">
+		<rdfs:label>Artifact Referer</rdfs:label>
+		<rdfs:domain rdf:resource="ArtifactVisit"/>
+		<rdfs:range rdf:resource="Artifact"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for ArtifactVisit class -->
+
+
+	<!-- definition of properties for class UserActivity class -->
+	<rdf:Property rdf:about="artifact">
+		<rdfs:label>Artifact</rdfs:label>
+		<rdfs:domain rdf:resource="UserActivity"/>
+		<rdfs:range rdf:resource="Artifact"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="mouseEvent">
+		<rdfs:label>Mouse Event</rdfs:label>
+		<rdfs:domain rdf:resource="UserActivity"/>
+		<rdfs:range rdf:resource="MouseEvent"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="keyboardEvent">
+		<rdfs:label>Keyboard Event</rdfs:label>
+		<rdfs:domain rdf:resource="UserActivity"/>
+		<rdfs:range rdf:resource="KeyboardEvent"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for UserActivity class -->
+
+	<!-- definition of properties for class Course class -->
+	<rdf:Property rdf:about="learner">
+		<rdfs:label>Learner</rdfs:label>
+		<rdfs:domain rdf:resource="Course"/>
+		<rdfs:range rdf:resource="Person"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="tutor">
+		<rdfs:label>Tutor</rdfs:label>
+		<rdfs:domain rdf:resource="Course"/>
+		<rdfs:range rdf:resource="Person"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="artifact">
+		<rdfs:label>Artifact</rdfs:label>
+		<rdfs:domain rdf:resource="Course"/>
+		<rdfs:range rdf:resource="Artifact"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="targetAudience">
+		<rdfs:label>Target Audience</rdfs:label>
+		<rdfs:domain rdf:resource="Course"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="degreeRequirement">
+		<rdfs:label>Degree Requirement</rdfs:label>
+		<rdfs:domain rdf:resource="Course"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for Course class -->
+
+
+	<!-- definition of properties for class Conference class -->
+	<rdf:Property rdf:about="conferenceURL">
+		<rdfs:label>Conference URL</rdfs:label>
+		<rdfs:domain rdf:resource="Conference"/>
+		<rdfs:range rdf:resource="xsd:String"/>
+	</rdf:Property>
+	<rdf:Property rdf:about="artifact">
+		<rdfs:label>Artifact</rdfs:label>
+		<rdfs:domain rdf:resource="Conference"/>
+		<rdfs:range rdf:resource="Artifact"/>
+	</rdf:Property>
+	<!--- end of the definition of properties for Conference class -->
+</rdf:RDF>
+
+
+
+
+
