@@ -30,7 +30,7 @@ public class GetBibsonomy {
 
     public GetBibsonomy(){
         // create webservice client object with credentials, set API URL
-        _bib = new Bibsonomy("yu", "4902223a8bc5a14f0e9f37053eb3b560");
+        _bib = new Bibsonomy("username", "api_key");
         _bib.setApiURL("http://www.bibsonomy.org/api");
         _prefix = "afel:";
     }

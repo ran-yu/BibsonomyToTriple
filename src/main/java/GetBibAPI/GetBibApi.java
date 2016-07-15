@@ -39,7 +39,7 @@ public class GetBibApi {
     @WebMethod
     @Produces(MediaType.TEXT_HTML)
     @Path("/getUserDetail")
-    public String getUserDetail(@QueryParam("user_name") final String username) throws ErrorPerformingRequestException, JSONException, IOException {
+    public String getUserDetail(@QueryParam("username") final String username) throws ErrorPerformingRequestException, JSONException, IOException {
         String res = "";
         GetBibsonomy gb = new GetBibsonomy();
 
