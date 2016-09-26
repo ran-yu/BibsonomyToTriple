@@ -31,7 +31,7 @@ Copy the war into the deployment directory of your installed Java Servlet (e.g. 
 ##Methods
 The individual methods are accessible through URL once the REST API setup succeeded. 
 
-The URL is formatted as: http://tmocatserver.xxx.yyy.de:8080/http://asev.l3s.uni-hannover.de:19090/bib_data-2.0/GetBib/getPosts?start=2000&end=3000
+The URL is formatted as: http://tmocatserver.xxx.yyy.zz:8080/bib_data-2.0/GetBib/getPosts?start=2000&end=3000
 
 ###Query for users within the range [start,end]:
 Method name: getUsers
